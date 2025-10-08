@@ -24,19 +24,44 @@ The synchronous nature of the flip-flops ensures that the shifting of data occur
 Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and an output (Q). The D input represents the data to be loaded into the flip-flop, while the CLK input is connected to the common clock signal. The output (Q) of each flip-flop is connected to the D input of the next flip-flop, forming a cascade.
 
 **Procedure**
+Declare a Verilog module named EXP11 with input ports clk, rst, sin, and an output port q.
 
+Declare input ports: clk for the clock signal, rst for the reset signal, and sin for the input signal. Also, declare the output port q as a 4-bit vector representing the state of flip-flops.
+
+Declare an internal register q as a 4-bit vector to store the state of the flip-flops.
+
+Create an always block that triggers on the positive edge of both the clock (clk) and the reset signal (rst), containing the following steps:
+
+If the reset signal is asserted (rst), assign q to 4'b0000 to reset all flip-flops to 0.
+
+If the reset signal is not asserted, assign the value of sin to the first flip-flop (q[0]) and shift the values of q to the right.
+
+End the module declaration.
 /* write all the steps invloved */
 
 **PROGRAM**
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming.
-
+module siso1(clk,rst,din,q);
+input clk,rst;
+input din;
+output reg [3:0]q;
+always @(posedge clk)
+begin
+q[0]<=din;
+q[1]<=q[0];
+q[2]<=q[1];
+q[3]<=q[2];
+end
+endmodule
 Developed by: RegisterNumber:
 
 */
 
 **RTL LOGIC FOR SISO Shift Register**
+<img width="1496" height="602" alt="image" src="https://github.com/user-attachments/assets/16ba129e-ef6a-4421-84e6-b025f27c831b" />
 
 **TIMING DIGRAMS FOR SISO Shift Register**
+<img width="1109" height="294" alt="image" src="https://github.com/user-attachments/assets/3dbd02ff-9435-471e-bed8-91baae494e4d" />
 
-**RESULTS**
+
+**RESULTS**Thus,to implement SISO Shift Register using verilog and validating their functionality using their functional tables is verified.
+
