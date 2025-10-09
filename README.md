@@ -54,7 +54,7 @@ end
 endmodule
 Developed by:S.Srinithi
 RegisterNumber:25018743
-
+date:27/09/2025
 */
 
 **RTL LOGIC FOR SISO Shift Register**
